@@ -28,7 +28,7 @@ class DatosSocio(object):
                 filter_by(id_socio=id_socio). \
                 one()
 
-            return socio
+            return 10
 
         except:
             return None
