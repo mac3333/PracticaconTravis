@@ -1,0 +1,23 @@
+language: python
+
+dist: "xenial"
+python:
+  - "3.7"
+  - "3.6"
+  - "nightly"
+
+cache: 
+  - pip
+  - directories:
+    - ./.venv
+
+env:
+  global:
+    - PIPENV_IGNORE_VIRTUALENVS=1
+    - PIPENV_VENV_IN_PROJECT=1
+
+install:
+  - pip install pipenv
+  - pipenv install --dev --ignore-pipfile
+
+script: pipenv run test $TRAVIS_BRANCH
